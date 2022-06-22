@@ -24,7 +24,7 @@ const Categories = () => {
                         <ul className="categories">
                     {
                         categories?.map((item) => (
-                            <li key={item.id}>{item.name}</li>
+                            <li key={item.id} onClick={() => setShow(!show)}>{item.name}</li>
                         ))
                     }
                 </ul>
