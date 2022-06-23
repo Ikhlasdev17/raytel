@@ -15,7 +15,7 @@ const Categories = () => {
     <div className='categories__list'>
         <div className="container">
             <div className="category__btn" onClick={() => setShow(!show)}>
-                <i class='bx bx-grid-alt' ></i>
+                <i className='bx bx-grid-alt' ></i>
                 <span>Kategoriyalar</span>
             </div>
                 {/* CATEGORIES UL */}

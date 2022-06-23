@@ -22,14 +22,14 @@ const Products = () => {
                         <div className="favourite">
                             {
                                 item?.is_favorite ? (
-                                    <i class='active bx bxs-star'></i>
+                                    <i className='active bx bxs-star'></i>
                                 ) : (
-                                    <i class='bx bx-star' ></i>
+                                    <i className='bx bx-star' ></i>
                                 )
                             }
                         </div>
                         <div className="basket">
-                        <i class='bx bx-basket' ></i>
+                        <i className='bx bx-basket' ></i>
                         </div>
                         <div className="card__image">
                             <img src={item?.images ? item?.images[0] : 'https://roboliristorante.com/wp-content/uploads/2021/10/default.jpg'} alt="" />

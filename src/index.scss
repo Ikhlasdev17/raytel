@@ -53,6 +53,11 @@ html {
   }
 }
 
+.block {
+  width: 100%;
+  display: block;
+}
+
 .btn {
   display: inline-block;
     font-weight: 400;
@@ -97,7 +102,7 @@ html {
   padding: 2rem 0;
   max-width: 1140px;
   margin: 0 auto;
-  z-index: 999999;
+  z-index: 9999;
   .header__logo {
     display: flex;
     align-items: center;
@@ -139,13 +144,13 @@ html {
     display: flex;
     align-items: center;
     text-align: center;
+    gap: 2rem;
     .header__navigation {
       display: flex;
       flex-direction: column;
       align-items: center;
       cursor: pointer;
       font-size: 1.4rem;
-      margin-left: 1.3rem;
       position: relative;
       i {
         font-size: 2rem;
@@ -196,7 +201,7 @@ html {
 
   .header__navigations {
     position: fixed;
-    z-index: 99999;
+    z-index: 999;
     bottom: 0;
     width: 100%;
     display: flex;
@@ -228,7 +233,7 @@ html {
 
 .categories__list {
   width: 100%; 
-  z-index: 99999;
+  z-index: 999;
 
   .category__btn {
     padding: .5rem 0;
@@ -384,6 +389,7 @@ html {
         width: 100%;
         height: 140px;
         object-fit: contain;
+        border-radius: 20px;
       }
     }
     .card-body {
@@ -423,6 +429,25 @@ html {
   }
 }
 
+
+@media screen and (max-width: 500px) {
+  
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .product__card {
+    .card-flex {
+      flex-direction: column;
+      align-items: start!important;
+    }
+    .card-btn {
+      font-size: 14px!important;
+      padding: 4px 12px!important;
+    }
+  }
+}
+}
+
  
 .categories__list {
   position: inherit!important;
@@ -434,3 +459,101 @@ html {
   }
 
 }
+
+
+
+// modal
+.modal-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9999999999;
+  .modal {
+    max-width: 80%;
+    width: 400px;
+    margin: 0 2rem;
+    background-color: #fff;
+    max-width: 100vh;
+    height: 400px;
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 2.8rem;
+      cursor: pointer;
+    }
+  }
+}
+
+// login
+
+.form {
+  width: 100%;
+  .form-label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 10px 0 20px 0;
+    span {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #F5F6FA;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  &::placeholder {
+    color: #C4C4C4;
+  }
+
+  &:focus {
+    border: 1px solid $blue;
+  }
+}
+
+
+.login-container {
+  width: 100%;
+  .login-header {
+    h1 {
+      font-size: 18px;
+      color:#141821;
+    }
+
+  }
+  .login-navigation {
+    width: 100%;
+    display: flex;
+    margin: 10px 0 20px 0;
+
+    .login-nav__item {
+      cursor: pointer;
+      width: 50%;
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 14px;
+      &-active {
+        border-bottom: 2px solid $blue;
+      }
+    }
+  }
+}
+
+
