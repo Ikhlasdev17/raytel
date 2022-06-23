@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useLocation } from 'react-router';
 import Swal from 'sweetalert2';
-import { URL } from '../../assets/URL';
+import { URL } from '../../assets/URL'; 
 
-const Login = ({ onClose, userData }) => {
+const Login = ({ onClose, setUser, setIsLogged }) => {
+    const location = useLocation()
     const [type, setType] = useState('login');
     const [loginUser, setLoginUser] = useState({
         email: '',
@@ -30,6 +32,11 @@ const Login = ({ onClose, userData }) => {
                     icon: 'success'
                 })
                 localStorage.setItem('isLogged', true)
+                localStorage.setItem('user', JSON.stringify(res.data))
+                localStorage.setItem('raytel_token', res.data.token)
+                setUser(res.data)
+                setIsLogged(true)
+                window.location.reload();
             })
             .catch(err => {
                 Swal.fire({
@@ -45,12 +52,19 @@ const Login = ({ onClose, userData }) => {
                     title: 'Muvaffaqiyatli yakunlandi!',
                     icon: 'success'
                 })
+                localStorage.setItem('isLogged', true)
+                localStorage.setItem('user', JSON.stringify(res.data))
+                localStorage.setItem('raytel_token', res.data.token)
+                setUser(res.data)
+                setIsLogged(true)
+                window.location.reload();
             })
             .catch(err => {
                 Swal.fire({
                     title: "Ma'lumotlar notog'ri kiritildi!",
                     icon:'error'
                 })
+                
             })
             .finally(() => onClose(false))
         }
@@ -115,6 +129,7 @@ const Login = ({ onClose, userData }) => {
                                 value={registerUser.name} 
                                 onChange={e => setRegisterUser({...registerUser, name: e.target.value})}  
                                 className="form-control"
+                                placeholder='Ismingizni kiriting'
                             />
                         </label>
                         <label className='form-label'>
@@ -124,6 +139,7 @@ const Login = ({ onClose, userData }) => {
                                 value={registerUser.email} 
                                 onChange={e => setRegisterUser({...registerUser, email: e.target.value})}  
                                 className="form-control"
+                                placeholder='Emailingizni kiriting'
                             />
                         </label>
                         <label className='form-label'>
