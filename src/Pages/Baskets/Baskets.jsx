@@ -59,9 +59,7 @@ const Baskets = () => {
                                 <h2 className='second_price'>{item?.prodcut_name}</h2>
                                 <h3 className='product__name'>{item?.price} SUM</h3>
                                 </div>
-                                <div className="card-flex">
-                                <div className="card-flex-right">
-                                </div>
+                                <div className="card-flex"> 
                                 <div style={{textAlign: 'right'}}>
                                 <h3 className='category__name'>{item?.color}</h3>
                                 <h3>Soni: {item?.count}</h3>
